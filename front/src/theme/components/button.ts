@@ -30,7 +30,7 @@ const Button = {
 		},
 		inline: {
 			bgGradient: `linear-gradient(90deg, ${colors.blue[700]} 0%, ${colors.red[700]} 100%)`,
-			color: 'white',
+			color: '#FFEBEB',
 		},
 		reverseInline: {
 			bgGradient: `linear-gradient(90deg, ${colors.red[700]} 0%, ${colors.blue[700]} 100%)`,
