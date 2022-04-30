@@ -15,24 +15,23 @@ contract Platform {
 
     function addPost(string calldata _metadataHash) public {
         Post memory newPost;
-    
+
         newPost.upvoteCount = 0;
         newPost.metadata = _metadataHash;
         posts[msg.sender].push(newPost);
     }
 
-    function checkVoter(address[] memory _voters, address _voter) internal pure returns (bool) {
+    modifier checkVoter(address[] memory _voters, address _voter) {
         for (uint16 i = 0; i < _voters.length; ++i) {
             if (_voters[i] == _voter) {
-                return true;
+                revert("You cannot vote twice for the same post");
             }
         }
-        return false;
+        _;
     }
 
-    function addUpvote(address _artist, uint16 _postIndex) public {
+    function addUpvote(address _artist, uint16 _postIndex) public checkVoter(posts[_artist][_postIndex].voters, msg.sender) {
         require(msg.sender != _artist, "You cannot upvote your own post");
-        require(checkVoter(posts[_artist][_postIndex].voters, msg.sender), "A user can't vote twice for the same post");
 
         posts[_artist][_postIndex].upvoteCount += 1;
     }
