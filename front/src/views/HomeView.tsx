@@ -1,11 +1,12 @@
-import { Link as RouteLink } from 'react-router-dom';
+import { Text, VStack } from '@chakra-ui/react';
 
-import { Link, Button, Text, VStack } from '@chakra-ui/react';
+import TopBar from 'components/TopBar';
 
 import colors from 'theme/foundations/colors';
 
 const HomeView = (): JSX.Element => (
 	<>
+		<TopBar />
 		<VStack spacing="56px" mt={{ base: '96px', md: '132px' }}>
 			<VStack spacing="16px">
 				<Text
@@ -25,13 +26,6 @@ const HomeView = (): JSX.Element => (
 				>
 					NFT Platform for the Paris P2P Festival
 				</Text>
-			</VStack>
-			<VStack w={{ base: '90%', md: '496px' }}>
-				<Link as={RouteLink} to="/signup" w="100%">
-					<Button variant="inline" w="100%" id="homeView-create-account-button">
-						Create an account
-					</Button>
-				</Link>
 			</VStack>
 		</VStack>
 	</>
