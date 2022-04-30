@@ -7,7 +7,7 @@ import {
 	ModalFooter,
 	ModalBody,
 	ModalCloseButton,
-	Text,
+	Input,
 } from '@chakra-ui/react';
 
 type CreateNftProps = {
@@ -20,16 +20,14 @@ const CreateNft = ({ isOpen, onClose }: CreateNftProps): JSX.Element => (
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<ModalOverlay />
 			<ModalContent>
-				<ModalHeader>Modal Title</ModalHeader>
+				<ModalHeader textAlign="center">Upload an image</ModalHeader>
 				<ModalCloseButton />
 				<ModalBody>
-					<Text>nft modal</Text>
+					<Input type="text" placeholder="Name" />
+					<Input type="file" />
 				</ModalBody>
 
-				<ModalFooter>
-					<Button colorScheme="blue" mr={3} onClick={onClose}>
-						Close
-					</Button>
+				<ModalFooter flexDirection="column" alignItems="center">
 					<Button variant="inline">Upload</Button>
 				</ModalFooter>
 			</ModalContent>
