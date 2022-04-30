@@ -7,7 +7,7 @@ import AuthRoute from 'app/AuthRoute';
 const Routes = (): JSX.Element => (
 	<BrowserRouter>
 		<Switch>
-			<AuthRoute exact path="/" children={<HomeView />} />
+			<AuthRoute exact path="/" view={<HomeView />} />
 			<Redirect push to="/" />
 		</Switch>
 	</BrowserRouter>
