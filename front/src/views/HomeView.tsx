@@ -1,44 +1,50 @@
-import { Link as RouteLink } from 'react-router-dom';
 import Web3 from 'web3';
 
-import { Button, Link } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 
-import OutlineButton from 'components/OutlineButton';
+import { useHistory } from 'react-router-dom';
+import { useAuthContext } from '../contexts/auth';
 
 const HomeView = (): JSX.Element => {
+	const auth = useAuthContext();
+	const history = useHistory();
+
 	const initWeb3 = async () => {
 		let web3Provider;
-		// Modern dapp browsers...
-		if (window.ethereum) {
-			web3Provider = window.ethereum;
+		if ((window as any).ethereum) {
+			web3Provider = (window as any).ethereum;
 			try {
 				// Request account access
-				await window.ethereum.request({ method: 'eth_requestAccounts' });
+				await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
 			} catch (error) {
 				// User denied account access...
 				console.error('User denied account access');
+				web3Provider = undefined;
 			}
 		}
 		// Legacy dapp browsers...
-		else if (window.web3) {
-			web3Provider = window.web3.currentProvider;
+		else if ((window as any).web3) {
+			web3Provider = (window as any).web3.currentProvider;
 		}
 		// If no injected web3 instance is detected, fall back to Ganache
 		else {
 			web3Provider = new Web3.providers.HttpProvider('http://localhost:7545');
 		}
-		setWeb3(new Web3(web3Provider));
+		if (web3Provider !== undefined) {
+			await auth.login(new Web3(web3Provider));
+			if (web3Provider) {
+				history.push('/feed');
+			}
+		}
 	};
 
 	return (
 		<>
-			<Link as={RouteLink} to="/signup" w="100%">
-				<Button variant="inline" w="100%" id="ipc-homeView-create-account-button">
-					Create an account
-				</Button>
-			</Link>
+			<Button variant="inline" w="100%" onClick={initWeb3} cursor="pointer">
+				Log in with MetaMask
+			</Button>
 		</>
 	);
-}
+};
 
 export default HomeView;
