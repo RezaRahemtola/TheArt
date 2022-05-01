@@ -7,7 +7,7 @@ import "./Nft.sol";
 contract Platform is Ownable {
 
     uint256 public lastUse;
-    address[] public creators;
+    address[] private creators;
 
     constructor () {
         lastUse = block.timestamp;
@@ -21,14 +21,14 @@ contract Platform is Ownable {
 
     mapping (address => Post[]) public posts;
 
-    function addPost(string calldata _metadataHash) public {
+    function addPost(address _poster, string calldata _metadataHash) onlyOwner public {
         Post memory _newPost;
 
-        if (posts[msg.sender].length == 0)
-            creators.push(msg.sender);
+        if (posts[_poster].length == 0)
+            creators.push(_poster);
         _newPost.upvoteCount = 0;
         _newPost.metadata = _metadataHash;
-        posts[msg.sender].push(_newPost);
+        posts[_poster].push(_newPost);
     }
 
     modifier checkVoter(address[] memory _voters, address _voter) {
@@ -40,10 +40,11 @@ contract Platform is Ownable {
         _;
     }
 
-    function addUpvote(address _artist, uint16 _postIndex) checkVoter(posts[_artist][_postIndex].voters, msg.sender) public {
-        require(msg.sender != _artist, "You cannot upvote your own post");
+    function addUpvote(address _voter, address _artist, uint16 _postIndex) onlyOwner checkVoter(posts[_artist][_postIndex].voters, _voter) public {
+        require(_voter != _artist, "You cannot upvote your own post");
 
         posts[_artist][_postIndex].upvoteCount += 1;
+        posts[_artist][_postIndex].voters.push(_voter);
     }
 
     modifier checkLastUse() {
