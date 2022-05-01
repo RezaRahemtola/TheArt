@@ -33,6 +33,7 @@ If an image is "upvoted" a certain number of times, an NFT "validated by The Art
 *Specify the Side Quest names you tried to implement in this project. Provide explanation / links to relevant part of the codes if possible.*
 
 - Side-Quest 1 - Aleph Message : Images are uploaded to IPFS through Aleph
+- Side-Quest 2 - Starton : We created a smart contract on Polygon Mumbai, and we interact with it through Starton
 
 ## Team & Feedbacks
 
