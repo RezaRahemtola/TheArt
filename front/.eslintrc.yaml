@@ -30,6 +30,7 @@ rules:
   react/require-default-props: 0
   react/no-children-prop: 0
   react-hooks/exhaustive-deps: off
+  "no-await-in-loop": 0
 
   no-alert: 0
   no-console: 0
