@@ -22,22 +22,26 @@ If an image is "upvoted" a certain number of times, an NFT "validated by The Art
 
 ## Installation
 
-*Explain, step by step how someone can install your project and play with it. The jury will mostly use MacOS, Ubuntu, Android and iOS. Setting up a docker / docker-compose is a good idea to allow someone to test the project easily.* 
+You can use the following command to install the dependencies and launch the platform:
+```bash
+make
+```
 
 ## How to Use
 
-*Provide an explanation of your projects features. You can link a demo video here (2 minutes max)*.
+The app should be available at [localhost:3000](http://localhost:3000).
+You can connect your wallet (Metamask for example) on the home page to arrive on a dashboard on which you'll see the images posted, be able to add one yourself.
+Votes can be casted by clicking the heart button on each image card.
 
 ## Side-Quests
 
-*Specify the Side Quest names you tried to implement in this project. Provide explanation / links to relevant part of the codes if possible.*
-
-- Side-Quest 1 - Aleph Message : Images are uploaded to IPFS through Aleph
+- Side-Quest 1 - Aleph Message : Images and their metadata are uploaded to IPFS through Aleph.
+- Side-Quest 2 - Starton : We created a smart contract on Polygon Mumbai. We deployed it using Starton's API and we also interact with it through Starton.
+You can also test the deployment of a contract with `node contracts/deploy.js`, and see an interaction example in the [`front/src/web3/getPosts.js`](https://github.com/RezaRahemtola/Hackathon-P2P-Festival-lmaar/blob/main/front/src/web3/getPosts.js) file.
 
 ## Team & Feedbacks
 
-Our team is called "LMAAR x PoC". We have learned 
+Our team is "LMAAR x PoC". During this hackathon, we discovered a lot of interesting technologies to play with, it was a great experience and even if our project isn't fully working we are looking forward to the next hackathon.
 
-## Developers
 | [<img src="https://github.com/lucas-louis.png?size=85" width=85><br><sub>Lucas Louis</sub>](https://github.com/lucas-louis) | [<img src="https://github.com/lolboysg.png?size=85" width=85><br><sub>Matéo Viel</sub>](https://github.com/lolboysg) | [<img src="https://github.com/OnsagerHe.png?size=85" width=85><br><sub>Albert Valentin</sub>](https://github.com/OnsagerHe) | [<img src="https://github.com/AbdelkarimBENGRINE.png?size=85" width=85><br><sub>Abdelkarim Bengrine</sub>](https://github.com/AbdelkarimBENGRINE) | [<img src="https://github.com/RezaRahemtola.png?size=85" width=85><br><sub>Reza Rahemtola</sub>](https://github.com/RezaRahemtola)
 | :---: | :---: | :---: | :---: | :---:
