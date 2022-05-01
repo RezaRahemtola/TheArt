@@ -21,7 +21,7 @@
   -->
   <title>The Art</title>
 </head>
-<body style="background: linear-gradient(90deg, #072988 0%, #ABD9D4 100%)">
+<body style="background: linear-gradient(-45deg, #ABD9D4, #072988, #A525CC); background-size: 400% 400%; animation: change 10s ease infinite">
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
 <!--
@@ -36,3 +36,18 @@
 -->
 </body>
 </html>
+
+
+<style>
+  @keyframes change {
+    0% {
+      background-position: 0 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+</style>

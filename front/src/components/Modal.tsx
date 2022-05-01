@@ -1,8 +1,20 @@
-import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from '@chakra-ui/react';
+import {
+	Box,
+	HStack,
+	Modal,
+	ModalBody,
+	ModalContent,
+	ModalFooter,
+	ModalHeader,
+	ModalOverlay,
+	Spacer,
+	Text,
+	VStack,
+} from '@chakra-ui/react';
 
 import colors from 'theme/foundations/colors';
 
-import OutlineButton from './OutlineButton';
+import { CloseIcon } from '@chakra-ui/icons';
 
 type PopupProps = {
 	isOpen: boolean;
@@ -16,21 +28,32 @@ const Popup = ({ isOpen, onClose, title, children, CTA }: PopupProps): JSX.Eleme
 	<Modal isOpen={isOpen} onClose={onClose}>
 		<ModalOverlay />
 		<ModalContent w="75%">
-			<ModalHeader
-				fontSize={{ base: '16px', '3xs': '16px', xs: '22px' }}
-				textAlign="center"
-				bgGradient={`linear-gradient(90deg, ${colors.blue[700]} 0%, ${colors.red[700]} 100%)`}
-				bgClip="text"
-			>
-				{title}
+			<ModalHeader>
+				<HStack w="100%">
+					<VStack w="100%">
+						<Text
+							fontSize={{ base: '16px', '3xs': '16px', xs: '22px' }}
+							fontWeight="600"
+							textAlign="center"
+							bgGradient={`linear-gradient(90deg, ${colors.blue[700]} 0%, ${colors.red[700]} 100%)`}
+							bgClip="text"
+						>
+							{title}
+						</Text>
+					</VStack>
+					<Spacer />
+					<Box>
+						<CloseIcon color={`${colors.red[700]}`} onClick={onClose} cursor="pointer" />
+					</Box>
+				</HStack>
 			</ModalHeader>
+
 			<ModalBody mt="16px" mb="32px">
 				{children}
 			</ModalBody>
 
 			<ModalFooter flexDirection="column" alignItems="center">
 				{CTA}
-				<OutlineButton w="100%" text="Close" onClick={onClose} id="ipc-modal-close-button" />
 			</ModalFooter>
 		</ModalContent>
 	</Modal>

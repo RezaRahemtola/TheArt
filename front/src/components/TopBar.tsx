@@ -31,13 +31,13 @@ const TopBar = (): JSX.Element => {
 						mt="16px"
 						mx="16px"
 					>
-						<HStack w="100%" h="100%">
-							<VStack w="100%">
-								<Link to="/account">
+						<Link to="/account">
+							<HStack w="100%" h="100%">
+								<VStack w="100%">
 									<Icon as={BsFillPersonFill} color="white" />
-								</Link>
-							</VStack>
-						</HStack>
+								</VStack>
+							</HStack>
+						</Link>
 					</Box>
 					<Box
 						w="64px"
@@ -45,10 +45,12 @@ const TopBar = (): JSX.Element => {
 						bgGradient={`linear-gradient(90deg, ${colors.blue[700]} 0%, ${colors.red[700]} 100%)`}
 						borderRadius="24px"
 						mx="16px"
+						onClick={onOpenAddPicture}
+						cursor="pointer"
 					>
 						<HStack w="100%" h="100%">
 							<VStack w="100%">
-								<AddIcon color="white" onClick={onOpenAddPicture} />
+								<AddIcon color="white" />
 							</VStack>
 						</HStack>
 					</Box>
@@ -57,7 +59,7 @@ const TopBar = (): JSX.Element => {
 			<Modal
 				isOpen={isOpenAddPicture}
 				onClose={onCloseAddPicture}
-				title="Add your picture"
+				title="Select your picture"
 				CTA={
 					<Button variant="inline" w="100%" mb="16px" onClick={addPicture} isLoading={isUploadLoading}>
 						Add your picture
@@ -72,6 +74,7 @@ const TopBar = (): JSX.Element => {
 						p="10px"
 						placeholder="Add the title of your picture"
 						onChange={(e: ChangeEvent<HTMLInputElement>) => setFileTitle(e)}
+						mb="16px"
 					/>
 					<Input
 						type="file"

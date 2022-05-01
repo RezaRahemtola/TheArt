@@ -1,7 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Art } from 'types/types';
-import { Link } from 'react-router-dom';
 import TopBar from '../components/TopBar';
 import ArtCard from '../components/ArtCard';
 
@@ -57,13 +56,13 @@ const FeedView = (): JSX.Element => {
 				templateColumns={{
 					base: 'repeat(1, 1fr)',
 					xl: 'repeat(2, 1fr)',
-					'2xl': 'repeat(1, 1fr)',
+					'2xl': 'repeat(3, 1fr)',
 					'4xl': 'repeat(4, 1fr)',
 					'5xl': 'repeat(5, 1fr)',
 				}}
 				mt="64px"
 				gap="32px"
-				px="30%"
+				px="7%"
 			>
 				{arts.map((art) => (
 					<GridItem key={art.artId}>
