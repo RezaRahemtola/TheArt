@@ -1,4 +1,16 @@
-import { VStack, Text, HStack, GridItem, Grid, Divider } from '@chakra-ui/react';
+import {
+	VStack,
+	Text,
+	HStack,
+	GridItem,
+	Grid,
+	Divider,
+	TabList,
+	Tabs,
+	Tab,
+	TabPanel,
+	TabPanels,
+} from '@chakra-ui/react';
 
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,6 +24,7 @@ import ArtCardProfile from 'components/ArtCardProfile';
 
 const AccountProfileView = (): JSX.Element => {
 	const [arts, setArts] = useState<Art[]>([]);
+	const [artsLiked, setArtsLiked] = useState<Art[]>([]);
 	const auth = useAuthContext();
 
 	useEffect(() => {
@@ -83,6 +96,49 @@ const AccountProfileView = (): JSX.Element => {
 				imageHash: 'ghjkl',
 			},
 		]);
+		setArtsLiked([
+			{
+				artId: 0,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+			{
+				artId: 1,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+			{
+				artId: 2,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+			{
+				artId: 3,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+
+			{
+				artId: 4,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+		]);
 	};
 
 	return (
@@ -94,26 +150,59 @@ const AccountProfileView = (): JSX.Element => {
 				</Text>
 			</HStack>
 			<Divider w="75%" pt="16px" />
-			<Grid
-				templateColumns={{
-					base: 'repeat(1, 1fr)',
-					xl: 'repeat(2, 1fr)',
-					'2xl': 'repeat(5, 1fr)',
-					'4xl': 'repeat(4, 1fr)',
-					'5xl': 'repeat(5, 1fr)',
-				}}
-				pt="64px"
-				gap="32px"
-				px="7%"
-			>
-				{arts.map((art) => (
-					<GridItem key={art.artId}>
-						<Link to={`/art/${art.artId}`}>
-							<ArtCardProfile art={art} />
-						</Link>
-					</GridItem>
-				))}
-			</Grid>
+			<Tabs variant='soft-rounded' align="center">
+				<TabList w="15%">
+					<Tab color="white">My pictures</Tab>
+					<Tab color="white">Pictures liked</Tab>
+				</TabList>
+
+				<TabPanels>
+					<TabPanel>
+						<Grid
+							templateColumns={{
+								base: 'repeat(1, 1fr)',
+								xl: 'repeat(2, 1fr)',
+								'2xl': 'repeat(5, 1fr)',
+								'4xl': 'repeat(4, 1fr)',
+								'5xl': 'repeat(5, 1fr)',
+							}}
+							pt="64px"
+							gap="32px"
+							px="7%"
+						>
+							{arts.map((art) => (
+								<GridItem key={art.artId}>
+									<Link to={`/art/${art.artId}`}>
+										<ArtCardProfile art={art} />
+									</Link>
+								</GridItem>
+							))}
+						</Grid>
+					</TabPanel>
+					<TabPanel>
+						<Grid
+							templateColumns={{
+								base: 'repeat(1, 1fr)',
+								xl: 'repeat(2, 1fr)',
+								'2xl': 'repeat(5, 1fr)',
+								'4xl': 'repeat(4, 1fr)',
+								'5xl': 'repeat(5, 1fr)',
+							}}
+							pt="64px"
+							gap="32px"
+							px="7%"
+						>
+							{artsLiked.map((art) => (
+								<GridItem key={art.artId}>
+									<Link to={`/art/${art.artId}`}>
+										<ArtCardProfile art={art} />
+									</Link>
+								</GridItem>
+							))}
+						</Grid>
+					</TabPanel>
+				</TabPanels>
+			</Tabs>
 		</VStack>
 	);
 };
