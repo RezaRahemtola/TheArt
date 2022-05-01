@@ -1,4 +1,4 @@
-import { BrowserRouter, Redirect, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 
 import HomeView from 'views/HomeView';
 import FeedView from 'views/FeedView';
