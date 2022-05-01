@@ -1,6 +1,6 @@
 import Routes from 'app/Routes';
 import { useEffect, useState } from 'react';
-import { Center, Spinner } from "@chakra-ui/react";
+import { Center, Spinner } from '@chakra-ui/react';
 import AuthContext from 'contexts/auth';
 import Auth from '../lib/auth';
 
@@ -33,6 +33,6 @@ const App = (): JSX.Element => {
 			</AuthContext.Provider>
 		</>
 	);
-}
+};
 
 export default App;

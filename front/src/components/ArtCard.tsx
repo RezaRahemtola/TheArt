@@ -7,12 +7,13 @@ type ArtCardProps = {
 };
 
 const ArtCard = ({ art }: ArtCardProps): JSX.Element => (
-	<Box w="100%" bg="#D1EFEA" pb="16px" borderRadius="0px 0px 24px 24px" border="2px #A525CC solid" mb="16px">
+	<Box w="100%" bg="#D1EFEA" pb="16px" borderRadius="0px 0px 24px 24px" mb="16px">
 		<VStack>
 			<Image
 				src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg"
 				w="100%"
 				h="auto"
+				border="2px #A525CC solid"
 			/>
 			<HStack w="100%">
 				<Box w="16px" mt="8px" ml="16px">

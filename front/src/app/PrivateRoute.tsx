@@ -1,13 +1,13 @@
-import { useEffect, useContext } from 'react';
+import { useEffect } from 'react';
 import { Route, RouteProps, useHistory } from 'react-router-dom';
 
 import { Center, Spinner } from '@chakra-ui/react';
-import AuthContext from '../contexts/auth';
+import { useAuthContext } from '../contexts/auth';
 
 type PrivateRouteProps = { children: JSX.Element } & RouteProps;
 
 const PrivateRoute = ({ children, ...rest }: PrivateRouteProps): JSX.Element => {
-	const auth = useContext(AuthContext);
+	const auth = useAuthContext();
 	const history = useHistory();
 
 	useEffect(() => {
