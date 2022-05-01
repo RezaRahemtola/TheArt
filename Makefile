@@ -5,7 +5,7 @@ all:	build start
 
 build:
 	@echo "🚧 Installing dependencies..."
-	yarn
+	yarn --cwd front/
 
 start:
 	@echo "🚀 Starting The Art..."
