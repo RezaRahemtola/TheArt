@@ -1,4 +1,8 @@
-# Hackathon-P2P-Festival-lmaar
+# The Art - P2P Festival Hackathon
+
+<div align="center">
+  <img src=".github/assets/home.png" width="80%" />
+</div>
 
 ## Problem
 
@@ -37,7 +41,7 @@ Votes can be casted by clicking the heart button on each image card.
 
 - Side-Quest 1 - Aleph Message : Images and their metadata are uploaded to IPFS through Aleph.
 - Side-Quest 2 - Starton : We created a smart contract on Polygon Mumbai. We deployed it using Starton's API and we also interact with it through Starton.
-You can also test the deployment of a contract with `node contracts/scripts/deploy.js`, and see an interaction example in the [`front/src/web3/getPosts.js`](https://github.com/RezaRahemtola/Hackathon-P2P-Festival-lmaar/blob/main/front/src/web3/getPosts.js) file.
+You can also test the deployment of a contract with `node contracts/scripts/deploy.js`, and see an interaction example in the [`front/src/web3/getPosts.js`](https://github.com/RezaRahemtola/Hackathon-P2P-Festival-lmaar/blob/main/front/src/web3/getPosts.ts) file.
 
 ## Team & Feedbacks
 
