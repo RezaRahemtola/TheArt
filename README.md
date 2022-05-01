@@ -1,6 +1,8 @@
-# Hackathon-P2P-Festival-lmaar
+# The Art - P2P Festival Hackathon
 
-<img src=".github/assets/home.png" width="80%" />
+<div align="center">
+  <img src=".github/assets/home.png" width="80%" />
+</div>
 
 ## Problem
 
