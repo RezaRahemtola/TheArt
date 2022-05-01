@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Box, HStack, Image, Spacer, Text, VStack } from '@chakra-ui/react';
-import { ArrowUpIcon } from '@chakra-ui/icons';
+import { Box, VStack } from '@chakra-ui/react';
+import TopBar from '../components/TopBar';
+import ArtCard from '../components/ArtCard';
 
 type ArtFocusParams = {
 	id: string;
@@ -9,27 +10,25 @@ type ArtFocusParams = {
 const ArtFocus = (): JSX.Element => {
 	const { id } = useParams<ArtFocusParams>();
 
-	// TODO get from the API the info of the art
-	const art = { name: 'test', ownerName: 'test' };
+	// TODO get from the API the info of the art with the id
+	const art = {
+		artId: 6,
+		name: 'Test name',
+		owner: 'Test owner',
+		ownerName: 'Test owner name',
+		createdAt: 1000,
+		imageHash: 'ghjkl',
+	};
 
 	return (
-		<VStack w="50%">
-			<Image
-				src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/640px-A_black_image.jpg"
-				w="100%"
-				h="auto"
-			/>
-			<HStack>
-				<Box w="16px">
-					<ArrowUpIcon />
+		<>
+			<TopBar />
+			<VStack mt="32px">
+				<Box w="50%">
+					<ArtCard art={art} />
 				</Box>
-				<Spacer />
-				<VStack>
-					<Text textColor="#14000A">{art.name}</Text>
-					<Text textColor="#14000A">By, {art.ownerName}</Text>
-				</VStack>
-			</HStack>
-		</VStack>
+			</VStack>
+		</>
 	);
 };
 

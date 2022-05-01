@@ -25,7 +25,7 @@ type PopupProps = {
 };
 
 const Popup = ({ isOpen, onClose, title, children, CTA }: PopupProps): JSX.Element => (
-	<Modal isOpen={isOpen} onClose={onClose}>
+	<Modal isOpen={isOpen} onClose={onClose} size="xl">
 		<ModalOverlay />
 		<ModalContent w="75%">
 			<ModalHeader>

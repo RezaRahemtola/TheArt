@@ -1,6 +1,6 @@
 import { Route, RouteProps } from 'react-router-dom';
 
-import { Divider, HStack, Spacer, Text, VStack } from '@chakra-ui/react';
+import { HStack, Text, VStack } from '@chakra-ui/react';
 
 type AuthRouteProps = { children: JSX.Element } & RouteProps;
 

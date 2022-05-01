@@ -1,11 +1,18 @@
-import { Grid, GridItem } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
-import { Art } from 'types/types';
-import TopBar from '../components/TopBar';
-import ArtCard from '../components/ArtCard';
+import { VStack, Text, HStack, GridItem, Grid, Divider } from '@chakra-ui/react';
 
-const FeedView = (): JSX.Element => {
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useAuthContext } from 'contexts/auth';
+
+import { Art } from 'types/types';
+
+import TopBar from 'components/TopBar';
+import ArtCardProfile from 'components/ArtCardProfile';
+
+const AccountProfileView = (): JSX.Element => {
 	const [arts, setArts] = useState<Art[]>([]);
+	const auth = useAuthContext();
 
 	useEffect(() => {
 		(async () => {
@@ -13,7 +20,7 @@ const FeedView = (): JSX.Element => {
 		})();
 	}, []);
 
-	const getArts = async (): Promise<void> => {
+	const getArts = async () => {
 		// TODO GET to API and fill setArts
 		setArts([
 			{
@@ -48,32 +55,67 @@ const FeedView = (): JSX.Element => {
 				createdAt: 1000,
 				imageHash: 'ghjkl',
 			},
+
+			{
+				artId: 4,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+
+			{
+				artId: 5,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
+
+			{
+				artId: 6,
+				name: 'Test name',
+				owner: 'Test owner',
+				ownerName: 'Test owner name',
+				createdAt: 1000,
+				imageHash: 'ghjkl',
+			},
 		]);
 	};
 
 	return (
-		<>
+		<VStack>
 			<TopBar />
+			<HStack>
+				<Text color="#FFEBEB" fontSize="32px">
+					Welcome {auth.accountName} 👋
+				</Text>
+			</HStack>
+			<Divider w="75%" pt="16px" />
 			<Grid
 				templateColumns={{
 					base: 'repeat(1, 1fr)',
 					xl: 'repeat(2, 1fr)',
-					'2xl': 'repeat(3, 1fr)',
+					'2xl': 'repeat(5, 1fr)',
 					'4xl': 'repeat(4, 1fr)',
 					'5xl': 'repeat(5, 1fr)',
 				}}
-				mt="64px"
+				pt="64px"
 				gap="32px"
 				px="7%"
 			>
 				{arts.map((art) => (
 					<GridItem key={art.artId}>
-						<ArtCard art={art} />
+						<Link to={`/art/${art.artId}`}>
+							<ArtCardProfile art={art} />
+						</Link>
 					</GridItem>
 				))}
 			</Grid>
-		</>
+		</VStack>
 	);
 };
 
-export default FeedView;
+export default AccountProfileView;

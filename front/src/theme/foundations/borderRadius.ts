@@ -1,5 +1,5 @@
 const radius = {
-	base: '8px',
+	base: '50px',
 	sm: '16px',
 	lg: '24px',
 };
