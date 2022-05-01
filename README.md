@@ -1,5 +1,7 @@
 # Hackathon-P2P-Festival-lmaar
 
+<img src=".github/assets/home.png" width="80%" />
+
 ## Problem
 
 Today, millions of NFTs are created every day from paintings, photos, drawings. However, the creators of these same contents are in some cases harmed, because NFTs of their works are sometimes created without their knowledge.
